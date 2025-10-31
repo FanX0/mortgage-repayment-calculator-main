@@ -1,1 +1,32 @@
 @import "tailwindcss";
+
+@theme {
+  --color-Lime: hsl(61, 70%, 52%);
+  --color-Red: hsl(4, 69%, 50%);
+  --color-White: hsl(0, 0%, 100%);
+  --color-Slate-100: hsl(202, 86%, 94%);
+  --color-Slate-300: hsl(203, 41%, 72%);
+  --color-Slate-500: hsl(200, 26%, 54%);
+  --color-Slate-700: hsl(200, 24%, 40%);
+  --color-Slate-900: hsl(202, 55%, 16%);
+}
+
+body {
+  /* 500, 700 */
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="password"] {
+  @apply rounded-md px-[1rem] py-[0.5rem] inset-shadow-sm border-1  hover:border-Lime focus:border-Lime focus:outline-none;
+}
+
+input[type="radio"] {
+  @apply appearance-none w-[1rem] h-[1rem] p-0 flex-none border-2  rounded-full bg-White  checked:border-Lime focus:border-Lime focus:outline-none;
+}
+
+.radio-container {
+  @apply border-1  rounded-md px-[1rem] py-[0.5rem] w-full hover:border-Lime has-[:checked]:border-Lime;
+}
