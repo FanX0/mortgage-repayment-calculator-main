@@ -74,8 +74,12 @@ const Calculator = () => {
           >
             <fieldset className="flex flex-col gap-[1rem] w-full">
               <p className="flex flex-col gap-[0.5rem] w-full">
-                <label htmlFor="amount">Mortgage Amount</label>
-                {errors.amount?.message ? <p>{errors.amount.message}</p> : null}
+                <div className="flex flex-row justify-between items-center">
+                  <label htmlFor="amount">Mortgage Amount</label>
+                  {errors.amount?.message ? (
+                    <p className="text-Red text-sm">{errors.amount.message}</p>
+                  ) : null}
+                </div>
                 <input
                   type="number"
                   id="amount"
@@ -91,8 +95,12 @@ const Calculator = () => {
                 />
               </p>
               <p className="flex flex-col gap-[0.5rem] items-start w-full">
-                <label htmlFor="term">Mortgage Term</label>
-                {errors.term?.message ? <p>{errors.term.message}</p> : null}
+                <div className="flex flex-row justify-between items-center w-full">
+                  <label htmlFor="term">Mortgage Term</label>
+                  {errors.term?.message ? (
+                    <p className="text-Red text-sm">{errors.term.message}</p>
+                  ) : null}
+                </div>
                 <input
                   type="number"
                   id="term"
@@ -108,10 +116,14 @@ const Calculator = () => {
                 />
               </p>
               <p className="flex flex-col gap-[0.5rem] items-start w-full">
-                <label htmlFor="interest">Interest Rate</label>
-                {errors.interest?.message ? (
-                  <p>{errors.interest.message}</p>
-                ) : null}
+                <div className="flex flex-row justify-between items-center w-full">
+                  <label htmlFor="interest">Interest Rate</label>
+                  {errors.interest?.message ? (
+                    <p className="text-Red text-sm">
+                      {errors.interest.message}
+                    </p>
+                  ) : null}
+                </div>
                 <input
                   type="number"
                   id="interest"
@@ -127,7 +139,12 @@ const Calculator = () => {
                 />
               </p>
 
-              <p>Mortgage Type</p>
+              <div className="flex flex-row justify-between items-center">
+                <p>Mortgage Type</p>
+                {errors.type?.message ? (
+                  <p className="text-Red text-sm">{errors.type.message}</p>
+                ) : null}
+              </div>
               <div
                 role="radiogroup"
                 className="flex flex-col gap-[0.5rem] items-start"
@@ -137,24 +154,26 @@ const Calculator = () => {
                     type="radio"
                     id="repayment"
                     value="repayment"
+                    aria-invalid={errors.type ? "true" : "false"}
+                    className=""
                     {...register("type", {
                       required: "Mortgage type is required",
                     })}
                   />
                   <span>Repayment</span>
                 </label>
-                <label className="radio-container flex items-center gap-3">
+                <label className="radio-container flex items-center gap-3 ">
                   <input
                     type="radio"
                     id="interest-only"
                     value="interest-only"
+                    aria-invalid={errors.type ? "true" : "false"}
                     {...register("type", {
                       required: "Mortgage type is required",
                     })}
                   />
                   <span>Interest Only</span>
                 </label>
-                {errors.type?.message ? <p>{errors.type.message}</p> : null}
               </div>
             </fieldset>
             <button

@@ -24,7 +24,7 @@ input[type="password"] {
 }
 
 input[type="radio"] {
-  @apply appearance-none w-[1rem] h-[1rem] p-0 flex-none border-2  rounded-full bg-White  checked:border-Lime focus:border-Lime focus:outline-none;
+  @apply appearance-none w-[1rem] h-[1rem] p-0 flex-none border-2  rounded-full bg-White  checked:border-Lime checked:bg-Lime checked:outline-2 checked:outline-Lime checked:border-2 checked:border-white;
 }
 
 .radio-container {
