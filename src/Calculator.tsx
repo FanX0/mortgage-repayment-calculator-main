@@ -80,65 +80,81 @@ const Calculator = () => {
                     <p className="text-Red text-sm">{errors.amount.message}</p>
                   ) : null}
                 </div>
-                <input
-                  type="number"
-                  id="amount"
-                  className="w-full"
-                  {...register("amount", {
-                    valueAsNumber: true,
-                    required: "Mortgage amount is required",
-                    min: {
-                      value: 0,
-                      message: "Mortgage amount must be greater than 0",
-                    },
-                  })}
-                />
-              </p>
-              <p className="flex flex-col gap-[0.5rem] items-start w-full">
-                <div className="flex flex-row justify-between items-center w-full">
-                  <label htmlFor="term">Mortgage Term</label>
-                  {errors.term?.message ? (
-                    <p className="text-Red text-sm">{errors.term.message}</p>
-                  ) : null}
+                <div className="relative ">
+                  <input
+                    type="number"
+                    id="amount"
+                    className="w-full !pl-[2rem] pr-[1rem]"
+                    {...register("amount", {
+                      valueAsNumber: true,
+                      required: "Mortgage amount is required",
+                      min: {
+                        value: 0,
+                        message: "Mortgage amount must be greater than 0",
+                      },
+                    })}
+                  />
+                  <p className="absolute left-3 top-1/2 -translate-y-1/2 font-normal text-xl select-none pointer-events-none">
+                    £
+                  </p>
                 </div>
-                <input
-                  type="number"
-                  id="term"
-                  className="w-full"
-                  {...register("term", {
-                    valueAsNumber: true,
-                    required: "Mortgage term is required",
-                    min: {
-                      value: 0,
-                      message: "Mortgage term must be greater than 0",
-                    },
-                  })}
-                />
               </p>
-              <p className="flex flex-col gap-[0.5rem] items-start w-full">
-                <div className="flex flex-row justify-between items-center w-full">
-                  <label htmlFor="interest">Interest Rate</label>
-                  {errors.interest?.message ? (
-                    <p className="text-Red text-sm">
-                      {errors.interest.message}
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-[1rem]">
+                <p className="flex flex-col gap-[0.5rem] items-start w-full">
+                  <div className="flex flex-row justify-between items-center w-full">
+                    <label htmlFor="term">Mortgage Term</label>
+                    {errors.term?.message ? (
+                      <p className="text-Red text-sm">{errors.term.message}</p>
+                    ) : null}
+                  </div>
+                  <div className="relative w-full">
+                    <input
+                      type="number"
+                      id="term"
+                      className="w-full  !pr-[5rem]"
+                      {...register("term", {
+                        valueAsNumber: true,
+                        required: "Mortgage term is required",
+                        min: {
+                          value: 0,
+                          message: "Mortgage term must be greater than 0",
+                        },
+                      })}
+                    />
+                    <p className="absolute right-3 top-1/2 -translate-y-1/2 font-normal text-xl select-none pointer-events-none">
+                      years
                     </p>
-                  ) : null}
-                </div>
-                <input
-                  type="number"
-                  id="interest"
-                  className="w-full"
-                  {...register("interest", {
-                    valueAsNumber: true,
-                    required: "Interest rate is required",
-                    min: {
-                      value: 0,
-                      message: "Interest rate must be greater than 0",
-                    },
-                  })}
-                />
-              </p>
-
+                  </div>
+                </p>
+                <p className="flex flex-col gap-[0.5rem] items-start w-full">
+                  <div className="flex flex-row justify-between items-center w-full">
+                    <label htmlFor="interest">Interest Rate</label>
+                    {errors.interest?.message ? (
+                      <p className="text-Red text-sm">
+                        {errors.interest.message}
+                      </p>
+                    ) : null}
+                  </div>
+                  <div className="relative w-full">
+                    <input
+                      type="number"
+                      id="interest"
+                      className="w-full  !pr-[3rem]"
+                      {...register("interest", {
+                        valueAsNumber: true,
+                        required: "Interest rate is required",
+                        min: {
+                          value: 0,
+                          message: "Interest rate must be greater than 0",
+                        },
+                      })}
+                    />
+                    <p className="absolute right-3 top-1/2 -translate-y-1/2 font-normal text-xl select-none pointer-events-none">
+                      %
+                    </p>
+                  </div>
+                </p>
+              </div>
               <div className="flex flex-row justify-between items-center">
                 <p>Mortgage Type</p>
                 {errors.type?.message ? (
