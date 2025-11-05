@@ -80,11 +80,11 @@ const Calculator = () => {
                     <p className="text-Red text-sm">{errors.amount.message}</p>
                   ) : null}
                 </div>
-                <div className="relative ">
+                <div className="relative overflow-hidden">
                   <input
                     type="number"
                     id="amount"
-                    className="w-full !pl-[2rem] pr-[1rem]"
+                    className="w-full !pl-[3.5rem] pr-[1rem]"
                     {...register("amount", {
                       valueAsNumber: true,
                       required: "Mortgage amount is required",
@@ -94,9 +94,11 @@ const Calculator = () => {
                       },
                     })}
                   />
-                  <p className="absolute left-3 top-1/2 -translate-y-1/2 font-normal text-xl select-none pointer-events-none">
-                    £
-                  </p>
+                  <div className="absolute left-[1px] inset-y-[1px] bg-Slate-100 px-[1rem] flex items-center pointer-events-none">
+                    <p className="font-semibold text-xl text-Slate-900">
+                      £
+                    </p>
+                  </div>
                 </div>
               </p>
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-[1rem]">
@@ -107,11 +109,11 @@ const Calculator = () => {
                       <p className="text-Red text-sm">{errors.term.message}</p>
                     ) : null}
                   </div>
-                  <div className="relative w-full">
+                  <div className="relative w-full overflow-hidden">
                     <input
                       type="number"
                       id="term"
-                      className="w-full  !pr-[5rem]"
+                      className="w-full  !pr-[6rem]"
                       {...register("term", {
                         valueAsNumber: true,
                         required: "Mortgage term is required",
@@ -121,12 +123,14 @@ const Calculator = () => {
                         },
                       })}
                     />
-                    <p className="absolute right-3 top-1/2 -translate-y-1/2 font-normal text-xl select-none pointer-events-none">
-                      years
-                    </p>
+                    <div className="absolute right-[1px] inset-y-[1px] bg-Slate-100 px-[1rem] flex items-center pointer-events-none">
+                      <p className="font-semibold text-xl text-Slate-900">
+                        years
+                      </p>
+                    </div>
                   </div>
                 </p>
-                <p className="flex flex-col gap-[0.5rem] items-start w-full">
+                <p className="flex flex-col gap-[0.5rem] items-start w-full ">
                   <div className="flex flex-row justify-between items-center w-full">
                     <label htmlFor="interest">Interest Rate</label>
                     {errors.interest?.message ? (
@@ -135,11 +139,11 @@ const Calculator = () => {
                       </p>
                     ) : null}
                   </div>
-                  <div className="relative w-full">
+                  <div className="relative w-full overflow-hidden">
                     <input
                       type="number"
                       id="interest"
-                      className="w-full  !pr-[3rem]"
+                      className="w-full  !pr-[4rem]"
                       {...register("interest", {
                         valueAsNumber: true,
                         required: "Interest rate is required",
@@ -149,9 +153,11 @@ const Calculator = () => {
                         },
                       })}
                     />
-                    <p className="absolute right-3 top-1/2 -translate-y-1/2 font-normal text-xl select-none pointer-events-none">
-                      %
-                    </p>
+                    <div className="absolute right-[1px] inset-y-[1px] bg-Slate-100 px-[1rem] flex items-center pointer-events-none">
+                      <p className="font-normal text-xl select-none">
+                        %
+                      </p>
+                    </div>
                   </div>
                 </p>
               </div>
